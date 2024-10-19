@@ -8,6 +8,8 @@ body {
 .container {
     display: flex;
     gap: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .table-container {
@@ -25,8 +27,17 @@ th, td {
     text-align: left;
 }
 
+tr {
+    cursor: pointer;
+}
+
 tr.selected {
     background-color: #f2f2f2;
+}
+
+tr.dirty {
+    background-color: #ffcccc;
+    font-style: italic;
 }
 
 .form-container {
