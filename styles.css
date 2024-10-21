@@ -26,7 +26,8 @@ body {
         border-collapse: collapse;
         text-align: left;
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             border: 1px solid #ddd;
         }
@@ -42,7 +43,7 @@ body {
             &.selected {
                 background-color: #b2eb79;
             }
-            
+
             &.dirty {
                 background-color: #e9be78;
                 font-style: italic;
@@ -81,7 +82,7 @@ body {
         }
     }
 
-    #save-button, #reset-button {
+    button {
         padding: 10px;
         background-color: #007bff;
         color: white;
@@ -89,10 +90,17 @@ body {
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s;
+
+        &#save-button {
+            background-color: #007bff;
+        }
+
+        &#reset-button {
+            background-color: #dc3545;
+        }
     }
 
-}
-
-label {
-    margin-top: 10px;
+    label {
+        margin-top: 10px;
+    }
 }
