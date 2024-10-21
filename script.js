@@ -74,6 +74,7 @@ function selectRow(row, index) {
     detailForm.email.value = data[index].email;
 }
 
+// Daten aktualisieren
 function updateData(key, value) {
     console.log(`Update data[${key}] = ${value}`);
     proxy_object[key] = value;
@@ -92,6 +93,7 @@ detailForm.addEventListener("submit", (event) => {
     }
 });
 
+// Proxy-Objekt mit Daten befüllen
 function loadProxyObject(index) {
     console.log("Load proxy object");
     proxy_object.id = data[index].id;

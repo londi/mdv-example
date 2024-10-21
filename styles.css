@@ -32,11 +32,11 @@ tr {
 }
 
 tr.selected {
-    background-color: #f2f2f2;
+    background-color: #b2eb79;
 }
 
 tr.dirty {
-    background-color: #ffcccc;
+    background-color: #e9be78;
     font-style: italic;
 }
 
