@@ -63,6 +63,11 @@ function populateTable() {
 
 // Zeile auswählen
 function selectRow(row, index) {
+    if (proxy_object["dirty"]) {
+        alert("Please save the changes first 👻");
+        return;
+    }
+
     console.log(`Select row ${index}`);
     selectedRow = index;
 
