@@ -25,31 +25,31 @@ body {
         width: 100%;
         border-collapse: collapse;
         text-align: left;
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr {
+            cursor: pointer;
+
+            &.selected {
+                background-color: #b2eb79;
+            }
+            
+            &.dirty {
+                background-color: #e9be78;
+                font-style: italic;
+            }
+        }
     }
 
-    #data-table th,
-    #data-table td {
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-    }
-
-    #data-table thead {
-        background-color: #007bff;
-        color: white;
-    }
-
-    tr {
-        cursor: pointer;
-    }
-}
-
-tr.selected {
-    background-color: #b2eb79;
-}
-
-tr.dirty {
-    background-color: #e9be78;
-    font-style: italic;
 }
 
 .form-container {
@@ -67,21 +67,21 @@ tr.dirty {
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     }
 
-    #detail-form label {
-        font-weight: bold;
-    }
-
-    #detail-form input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    #save-button {
+    #save-button, #reset-button {
         padding: 10px;
         background-color: #007bff;
         color: white;

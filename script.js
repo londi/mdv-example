@@ -91,6 +91,10 @@ detailForm.addEventListener("submit", (event) => {
     }
 });
 
+document.getElementById("reset-button").addEventListener("click", (event) => {
+    alert("Not implemented yet 🤷‍♂️");
+});
+
 // Proxy-Objekt mit Daten befüllen
 function loadProxyObject(index) {
     proxy_object.id     = data[index].id;
