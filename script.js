@@ -7,11 +7,9 @@ const data = [
 
 const proxy_handler = {
     get: function (target, prop, receiver) {
-        console.log(`Get: ${prop}`);
         return target[prop];
     },
     set: function (target, prop, value, receiver) {
-        console.log(`Set: ${prop} = ${value}`);
         target[prop] = value;
         data[target["id"] - 1][prop] = value;
         populateTable();
@@ -29,15 +27,14 @@ const target = {
 let proxy_object = new Proxy({}, proxy_handler);
 
 // HTML-Elemente referenzieren
-const tableBody = document.getElementById("table-body");
-const detailForm = document.getElementById("detail-form");
+const tableBody     = document.getElementById("table-body");
+const detailForm    = document.getElementById("detail-form");
 
 // Aktuell ausgewähltes Element
 let selectedRow = null;
 
 // Tabelle befüllen
 function populateTable() {
-    console.log("Populate table, selectedRow = ", selectedRow);
     tableBody.innerHTML = "";
     data.forEach((item, index) => {
         const row = document.createElement("tr");
@@ -68,22 +65,20 @@ function selectRow(row, index) {
         return;
     }
 
-    console.log(`Select row ${index}`);
     selectedRow = index;
 
     loadProxyObject(index);
 
     // Formular mit den Daten füllen
-    detailForm.id.value = data[index].id;
-    detailForm.name.value = data[index].name;
-    detailForm.email.value = data[index].email;
+    detailForm.id.value     = data[index].id;
+    detailForm.name.value   = data[index].name;
+    detailForm.email.value  = data[index].email;
 }
 
 // Daten aktualisieren
 function updateData(key, value) {
-    console.log(`Update data[${key}] = ${value}`);
-    proxy_object[key] = value;
-    proxy_object["dirty"] = true;
+    proxy_object[key]                   = value;
+    proxy_object["dirty"]               = true;
 }
 
 // Event-Listener für Formularänderungen
@@ -91,20 +86,17 @@ detailForm.name.addEventListener("input", () => updateData("name", detailForm.na
 detailForm.email.addEventListener("input", () => updateData("email", detailForm.email.value));
 detailForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("Submit form");
     if (proxy_object["dirty"]) {
-        console.log("Submit form");
         proxy_object["dirty"] = false;
     }
 });
 
 // Proxy-Objekt mit Daten befüllen
 function loadProxyObject(index) {
-    console.log("Load proxy object");
-    proxy_object.id = data[index].id;
-    proxy_object.name = data[index].name;
-    proxy_object.email = data[index].email;
-    proxy_object.dirty = false;
+    proxy_object.id     = data[index].id;
+    proxy_object.name   = data[index].name;
+    proxy_object.email  = data[index].email;
+    proxy_object.dirty  = false;
 }
 
 // Tabelle initial befüllen
